@@ -83,17 +83,19 @@ const App = () => {
         <Navbar totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle} />
 
         <Switch>
-          <Route exact path="/">
-            <Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
-          </Route>
-
-          <Route exact path="/cart">
+        <Route exact path="/cart">
             <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
           </Route>
 
           <Route path="/checkout" exact>
             <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
           </Route>
+          
+          <Route exact path="">
+            <Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
+          </Route>
+
+          
           
         </Switch>
       </div>
